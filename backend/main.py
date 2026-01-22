@@ -5,10 +5,10 @@ app = FastAPI()
 
 data = "Agartala"
 
-@app.get("/")
+@app.get("/api/")
 def root():
     return {"Message": "Welcome to EC2 Test app"}
 
-@app.get("/data")
+@app.get("/api/data")
 def get_data():
     return {"Data": data}
