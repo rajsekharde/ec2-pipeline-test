@@ -1,0 +1,23 @@
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+  backend:
+    container_name: backend
+    build: ./backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
