@@ -67,5 +67,5 @@ docker compose up --build -d
 9. Access traefik & prometheus dashboards using ssh port forwarding:
 
 ```bash
-ssh -i "ec2-test.pem" -L 9090:localhost:8080 ubuntu@18.232.49.236
+ssh -i "<key-pair file>" -L 8080:localhost:8080 -L 9090:localhost:9090 ubuntu@<Public IPv4 address of EC2 instance>
 ```
