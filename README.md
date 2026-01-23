@@ -1,16 +1,16 @@
 ## Steps
 
-1. Create frontend, backend apps, ran locally
+Create frontend, backend apps, ran locally
 
-2. Set up Dockerfile for frontend, backend; Add docker-compose.yml
+Set up Dockerfile for frontend, backend; Add docker-compose.yml
 
-3. git commit & push to GitHub
+git commit & push to GitHub
 
-4. Launch EC2 instance with Ubuntu 24.04, t3.micro, SSH from 0.0.0.0, stored ssh key file
+Launch EC2 instance with Ubuntu 24.04, t3.micro, SSH from 0.0.0.0, stored ssh key file
 
-5. ssh into the instance using the key file
+ssh into the instance using the key file
 
-6. Set up the server using commands:
+Set up the server using commands:
 
 ```bash
 sudo apt update && sudo apt upgrade -y # Update & upgrade packages
@@ -51,21 +51,30 @@ sudo reboot # For all changes to take effect
 
 Then ssh again and enter docker ps to check if user was added to docker group
 
-7. Clone GitHub repository:
+Clone GitHub repository:
 
 ```bash
 git clone "https://github.com/rajsekharde/ec2-pipeline-test.git"
 cd ec2-pipeline-test
 ```
 
-8. Build and run the containers:
+Build and run the containers:
 
 ```bash
 docker compose up --build -d
 ```
 
-9. Access traefik & prometheus dashboards using ssh port forwarding:
+Access traefik & prometheus dashboards using ssh port forwarding:
 
 ```bash
 ssh -i "<key-pair file>" -L 8080:localhost:8080 -L 9090:localhost:9090 ubuntu@<Public IPv4 address of EC2 instance>
 ```
+
+Run load tests locally using locust:
+
+```bash
+cd testing
+locust
+```
+
+Open http://localhost:8089 to access the locust dashboard. Enter website URL as the host.
