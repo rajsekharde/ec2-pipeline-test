@@ -60,3 +60,9 @@ cd ec2-pipeline-test
 ```bash
 docker compose up --build -d
 ```
+
+9. Access traefik port using ssh port forwarding:
+
+```bash
+ssh -i "ec2-test.pem" -L 9090:localhost:8080 ubuntu@18.232.49.236
+```
