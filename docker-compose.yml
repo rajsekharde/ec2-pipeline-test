@@ -20,8 +20,6 @@ services:
     container_name: frontend
     build: ./frontend
     restart: unless-stopped
-    ports:
-      - "3000:3000"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
@@ -35,8 +33,6 @@ services:
     container_name: backend
     build: ./backend
     restart: unless-stopped
-    ports:
-      - "8000:8000"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=PathPrefix(`/api`)"
