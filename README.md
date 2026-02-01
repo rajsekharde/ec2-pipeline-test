@@ -8,6 +8,8 @@ git commit & push to GitHub
 
 Launch EC2 instance with Ubuntu 24.04, t3.micro, SSH from 0.0.0.0, stored ssh key file
 
+Create a DNS-A record pointing to the EC2 instance's IP Address & add Clouflare proxy for HTTPS
+
 ssh into the instance using the key file
 
 Set up the server using commands:
