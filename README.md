@@ -10,6 +10,8 @@ Launch EC2 instance with Ubuntu 24.04, t3.micro, SSH from 0.0.0.0, stored ssh ke
 
 Create a DNS-A record pointing to the EC2 instance's IP Address & add Clouflare proxy for HTTPS
 
+Set SSL/TLS mode to Flexible on Cloudflare
+
 ssh into the instance using the key file
 
 Set up the server using commands:
