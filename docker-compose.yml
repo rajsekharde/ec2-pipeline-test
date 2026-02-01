@@ -23,7 +23,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.entrypoints=web"
-      - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.frontend.rule=(Host(`ec2-test.rajsekharde.com`) || Host(`localhost`)) && PathPrefix(`/`)"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
       - "traefik.http.routers.frontend.priority=1"
     networks:
@@ -38,7 +38,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.entrypoints=web"
-      - "traefik.http.routers.backend.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.backend.rule=(Host(`ec2-test.rajsekharde.com`) || Host(`localhost`)) && PathPrefix(`/api`)"
       - "traefik.http.services.backend.loadbalancer.server.port=8000"
       - "traefik.http.routers.backend.priority=10"
     networks:
